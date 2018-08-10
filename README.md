@@ -1,3 +1,12 @@
+# Usege
+
+```sh
+make docker-build
+make docker-run
+```
+
+rubyなのにMakeとな
+
 # Ruby on Rails チュートリアルのサンプルアプリケーション
 
 これは、次の教材で作られたサンプルアプリケーションです。   
