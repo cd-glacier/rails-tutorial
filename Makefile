@@ -1,5 +1,4 @@
 
-
 docker-build:
 	docker build -t rails-tutorial .
 
@@ -12,5 +11,7 @@ test:
 guard:
 	docker run -it -v $(PWD):/myapp rails-tutorial bundle exec guard
 
-console:
-	docker run -it -v $(PWD):/myapp rails-tutorial bundle exec rails console
+ARG = rails console
+bundle-exec:
+	docker run -it -v $(PWD):/myapp rails-tutorial bundle exec ${ARG}
+

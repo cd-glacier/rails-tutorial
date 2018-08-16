@@ -6,8 +6,9 @@ RUN mkdir /myapp
 WORKDIR /myapp
 
 ADD Gemfile /myapp/Gemfile
-RUN bundle install
 ADD . /myapp
+
+RUN bundle install
 
 RUN bundle exec guard init
 
