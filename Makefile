@@ -11,7 +11,7 @@ test:
 guard:
 	docker run --rm -it -v $(PWD):/myapp rails-tutorial bundle exec guard
 
-ARG = rails console
+ARG = rails console --sandbox
 bundle-exec:
 	docker run --rm -it -v $(PWD):/myapp rails-tutorial bundle exec ${ARG}
 
