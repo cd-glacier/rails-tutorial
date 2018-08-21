@@ -3,7 +3,7 @@ docker-build:
 	docker build -t rails-tutorial .
 
 run:
-	docker run --rm -p 3000:3000 -v $(PWD):/myapp rails-tutorial bundle exec rails s
+	docker run --rm -it -p 3000:3000 -v $(PWD):/myapp rails-tutorial bundle exec rails s
 
 test:
 	docker run --rm -v $(PWD):/myapp rails-tutorial rails test
