@@ -1,4 +1,4 @@
-.PHONY: help
+.PHONY: help test
 .DEFAULT_GOAL := help
 
 docker-build: ## build image for this repository
@@ -8,13 +8,13 @@ run: ## docker run
 	docker run --rm -it -p 3000:3000 -v $(PWD):/myapp rails-tutorial bundle exec rails s
 
 test: ## run rails test
-	docker run --rm -v $(PWD):/myapp rails-tutorial rails test
+	docker run --rm -it -v $(PWD):/myapp rails-tutorial bundle exec rails test
 
 guard: ## run guard
 	docker run --rm -it -v $(PWD):/myapp rails-tutorial bundle exec guard
 
 ARG = rails console --sandbox
-bundle-exec: ## run `bundle exec ${ARG}`. default is bundle exec console --sandbox
+bundle-exec: ## usage: `make bundle-exec ARG="rails console"`. default is `bundle exec console --sandbox`
 	docker run --rm -it -v $(PWD):/myapp rails-tutorial bundle exec ${ARG}
 
 help: ## show help to make
